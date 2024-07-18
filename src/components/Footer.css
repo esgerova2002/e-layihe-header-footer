@@ -51,11 +51,14 @@
   font: normal 400 16px/30px;
 }
 
-.foot p {
+.bold {
   color: #FFF;
   font: normal 700 16px/30px;
 }
-
+.desc{
+  color: #FFF;
+  font: normal 400 16px/30px;
+}
 .finputicon input {
   width: 100%;
   padding-left: 40px;

@@ -15,7 +15,7 @@ export default function Footer() {
             <div className='cailling'><img src='./images/location.png' alt='location'></img><span>4140 Parker Rd. Allentown, New Mexico 31134</span></div>
           </div>
           <div className='foot'>
-            <p>Information</p>
+            <p className='bold'>Information</p>
             <ul>
               <li><a href='/account'>My Account</a></li>
               <li><a href='/login'>Login</a></li>
@@ -25,7 +25,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className='foot'>
-            <p>Service</p>
+            <p className='bold'>Service</p>
             <ul>
               <li><a href='/about'>About Us</a></li>
               <li><a href='/careers'>Careers</a></li>
@@ -35,8 +35,8 @@ export default function Footer() {
             </ul>
           </div>
           <div className='foot'>
-            <p>Subscribe</p>
-            <p>Enter your email below to be the first to know about new collections.</p>
+            <p className='bold'>Subscribe</p>
+            <p className='desc'>Enter your email below to be the first to know about new collections.</p>
             <div className="finputicon">
               <img src="./images/gmail.png" alt="gmail" className="icon-left" />
               <input type="email" id="email" name="email" placeholder="Your Email" />

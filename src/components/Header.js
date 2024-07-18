@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaSearch, FaRegHeart } from "react-icons/fa";
 import { SlArrowDown } from "react-icons/sl";
 import { BsCart2 } from "react-icons/bs";
@@ -8,10 +8,15 @@ import './Header.css';
 
 const Header = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const location = useLocation();
 
-  const toggleDropdown = () => {
-    setDropdownVisible(!dropdownVisible);
+  const handleMouseEnter = () => {
+    setDropdownVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setTimeout(() => {
+      setDropdownVisible(false);
+    }, 300); // 300ms gecikme
   };
 
   return (
@@ -39,14 +44,14 @@ const Header = () => {
           <FaRegHeart className='topicon' />
           <div className="cart-icon-wrapper">
             <BsCart2 className='topicon' />
-            <div className="cart-count">2</div>
+            <div className="cart-count"><span>2</span></div>
           </div>
           <button>Login</button>
         </div>
       </div>
       <div className='headnav'>
         <div className='cat'>
-          < AiOutlineMenu />
+          <AiOutlineMenu />
           <select name="cat" id="cat">
             <option value="cat">All Categories</option>
             <option value="noot">Noot</option>
@@ -56,19 +61,25 @@ const Header = () => {
         </div>
         <nav>
           <ul>
-            <li><a href="/" className={location.pathname === "/" ? "active" : ""}>Home</a></li>
-            <li><a href="/shop" onClick={toggleDropdown} className={location.pathname === "/shop" ? "active" : ""}>Shop <SlArrowDown /></a>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li 
+              onMouseEnter={handleMouseEnter} 
+              onMouseLeave={handleMouseLeave}
+            >
+              <Link to="/shop">Shop <SlArrowDown /></Link>
               {dropdownVisible && (
                 <ul className="dropdown">
-                  <li><a href="/shop/category1">Category 1</a></li>
-                  <li><a href="/shop/category2">Category 2</a></li>
-                  <li><a href="/shop/category3">Category 3</a></li>
+                  <li><Link to="/shop/category1">Category 1</Link></li>
+                  <li><Link to="/shop/category2">Category 2</Link></li>
+                  <li><Link to="/shop/category3">Category 3</Link></li>
                 </ul>
               )}
             </li>
-            <li><a href="/about" className={location.pathname === "/about" ? "active" : ""}>About Us</a></li>
-            <li><a href="/blog" className={location.pathname === "/blog" ? "active" : ""}>Blog</a></li>
-            <li><a href="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact Us</a></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/blog">Blog</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </nav>
       </div>
@@ -77,3 +88,4 @@ const Header = () => {
 };
 
 export default Header;
+

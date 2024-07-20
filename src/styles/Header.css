@@ -1,4 +1,3 @@
-
 .headerTop {
   display: grid;
   grid-template-columns: 178.5px 1fr 1fr;
@@ -28,7 +27,9 @@
   border-radius: 10px 0 0 10px;
   font: normal 400 16px/30px;
 }
-
+.select-wrapper select:focus,.cat select:focus{
+  outline: none;
+}
 .select-icon {
   position: absolute;
   right: 10px;
